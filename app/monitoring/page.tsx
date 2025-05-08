@@ -14,6 +14,9 @@ export default function Monitoring() {
                 <button className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
                     Button 3
                 </button>
+                <button className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+                    Button 4
+                </button>
             </div>
         </div>
     );

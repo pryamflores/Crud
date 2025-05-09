@@ -1,21 +1,39 @@
  'use client'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { ViewModal } from '../components/ViewModal'
 
 function Table() {
+
   const data = [
     { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
     { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
     { name: 'Alice Johnson', age: 22, email: 'alice.johnson@example.com' },
-    
   ];
+  // const [Information, setInformation] = useState({
+  //   name: '',
+  //   age: 0,
+  //   email: '',
+  // });
+  const [Information, setInformation] = useState(data[0]);
+  // const [darkMode, setDarkMode] = React.useState(false);
+  
 
-  const handledelete = () => {
-    console.log('Delete button clicked!');
-  }
+  
+
+
+  console.log(Information);
+const [name, setName] = useState('');
+console.log(name);
+  
+
+
+
+
   const handleedit = () => {
     console.log('edit button clicked!');
   }
   return (
+    <>
     <table className='border-gray-300'>
         <thead>
             <tr>
@@ -28,17 +46,21 @@ function Table() {
         <tbody>
             {data.map((item, index) => (
                 <tr key={index}>
-                    <td>{item.name}</td>
+                    <td>{((item.name).toUpperCase())}</td>
                     <td>{item.age}</td>
                     <td>{item.email}</td>
                     <td>
-                        <button onClick={handledelete} className='btn btn-sm bg-green-500 text-white rounded-lg'>Delete</button>
-                        <button onClick={handleedit} className='btn btn-sm bg-blue-500 text-white rounded-lg'>Edit</button>
+                        <button onClick={() => setName(item.name)} className='btn btn-sm bg-blue-500 text-white rounded-lg'>View name</button>
+                        <button onClick={() => setInformation(item)} className='btn btn-sm bg-green-500 text-white rounded-lg'>View infos</button>
                     </td>
                 </tr>
             ))}
         </tbody>
     </table>
+    <dialog id="my_modal_1" className="modal">
+        <ViewModal></ViewModal>
+    </dialog>
+    </>
   )
 } 
 
